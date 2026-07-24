@@ -1,5 +1,14 @@
 <?php
 
+function oris_normalize_for_match(string $value): string
+{
+    $transliterated = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $value);
+    if ($transliterated === false) {
+        $transliterated = $value;
+    }
+    return strtolower($transliterated);
+}
+
 function oris_filter_liga_skol_events(array $events): array
 {
     $matches = [];
@@ -8,7 +17,7 @@ function oris_filter_liga_skol_events(array $events): array
             continue;
         }
         $name = $event['Name'] ?? '';
-        if (mb_stripos($name, 'Liga škol', 0, 'UTF-8') !== false) {
+        if (str_contains(oris_normalize_for_match($name), oris_normalize_for_match('Liga škol'))) {
             $matches[] = $event;
         }
     }
