@@ -42,9 +42,6 @@ function formatRaceDate(string $isoDate): string
         <div class="header-kicker">Orientační běh pro školy</div>
         <div class="header-title">Liga škol</div>
         <div class="header-lead">Zábavné závody v orientačním běhu pro základní a střední školy Jihomoravského kraje.</div>
-        <div class="header-badges">
-            <span class="badge badge-muted">JM kraj</span>
-        </div>
     </div>
 
     <div class="page-body">
@@ -93,10 +90,10 @@ function formatRaceDate(string $isoDate): string
         <div class="section">
             <div class="section-title">Kategorie</div>
             <div class="cat-list">
-                <div class="cat-item"><b>D3/H3</b> — dívky/chlapci 1.–3. třída (šk. rok 2025/2026)</div>
-                <div class="cat-item"><b>D5/H5</b> — dívky/chlapci 4.–5. třída (šk. rok 2025/2026)</div>
-                <div class="cat-item"><b>D7/H7</b> — dívky/chlapci 6.–7. třída, prima/sekunda osmiletých gymnázií (šk. rok 2026/2027)</div>
-                <div class="cat-item"><b>D9/H9</b> — dívky/chlapci 8.–9. třída, prima/sekunda šestiletých gymnázií, tercie/kvarta osmiletých gymnázií (šk. rok 2026/2027)</div>
+                <div class="cat-item"><b>D3/H3</b> — dívky/chlapci 1.–3. třída</div>
+                <div class="cat-item"><b>D5/H5</b> — dívky/chlapci 4.–5. třída</div>
+                <div class="cat-item"><b>D7/H7</b> — dívky/chlapci 6.–7. třída, prima/sekunda osmiletých gymnázií</div>
+                <div class="cat-item"><b>D9/H9</b> — dívky/chlapci 8.–9. třída, prima/sekunda šestiletých gymnázií, tercie/kvarta osmiletých gymnázií</div>
                 <div class="cat-item"><b>DS/HS</b> — 1.–4. ročník střední školy, kvinta až oktáva osmiletých gymnázií, tercie až sexta šestiletých gymnázií</div>
             </div>
         </div>
