@@ -1,0 +1,175 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, sans-serif;
+  background: #f5f5f5;
+  color: #222;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+.page-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* HEADER */
+.page-header {
+  background: #f2f9f5;
+  border-bottom: 1px solid #d8ecdf;
+  padding: 28px 28px 24px;
+}
+.header-kicker {
+  color: #0a6b3a;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.header-title {
+  color: #183524;
+  font-size: 26px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+.header-lead {
+  color: #4a6b57;
+  font-size: 13px;
+  max-width: 460px;
+  line-height: 1.6;
+}
+.header-badges {
+  display: flex;
+  gap: 6px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.badge {
+  background: #0a6b3a;
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+.badge.badge-muted {
+  background: #eee;
+  color: #666;
+}
+
+/* BODY */
+.page-body { padding: 24px 28px 32px; }
+.intro-text {
+  color: #444;
+  font-size: 14.5px;
+  line-height: 1.75;
+  margin-bottom: 24px;
+}
+.intro-text + .intro-text { margin-top: -14px; }
+
+.section { margin-bottom: 22px; }
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #0a6b3a;
+  margin-bottom: 10px;
+}
+
+/* RACE CARDS */
+.race-list { display: flex; flex-direction: column; gap: 8px; }
+.race-card {
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-left: 3px solid #0a6b3a;
+  border-radius: 4px;
+  padding: 10px 14px;
+  gap: 14px;
+  text-decoration: none;
+  color: inherit;
+}
+.race-num {
+  background: #0a6b3a;
+  color: white;
+  font-size: 11px;
+  font-weight: 900;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.race-info { flex: 1; }
+.race-name { font-weight: 700; font-size: 13.5px; color: #222; }
+.race-meta { color: #888; font-size: 11.5px; margin-top: 2px; }
+.race-link { color: #0a6b3a; font-size: 11px; font-weight: 700; }
+.race-empty {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-left: 3px solid #0a6b3a;
+  border-radius: 4px;
+  padding: 12px 14px;
+  font-size: 12.5px;
+  color: #666;
+}
+
+/* CATEGORIES */
+.cat-list { display: flex; flex-direction: column; gap: 6px; }
+.cat-item {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 12.5px;
+  color: #444;
+}
+.cat-item b { color: #183524; }
+
+/* INFO GRID */
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.info-card {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 10px 12px;
+}
+.info-card-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #0a6b3a;
+  margin-bottom: 3px;
+}
+.info-card-value { font-size: 11.5px; color: #444; line-height: 1.5; }
+
+@media (max-width: 480px) {
+  .info-grid { grid-template-columns: 1fr; }
+}
+
+/* FOOTER */
+.page-footer {
+  background: #f2f9f5;
+  border-top: 1px solid #d8ecdf;
+  text-align: center;
+  padding: 16px 28px;
+  font-size: 11px;
+  color: #8aa093;
+}
+.page-footer a { color: #0a6b3a; }
+
+/* LEGAL PAGE */
+.legal-text { font-size: 13.5px; color: #444; line-height: 1.75; }
+.legal-text + .legal-text { margin-top: 18px; }
+.legal-text h2 { font-size: 14px; color: #183524; margin-bottom: 8px; }
