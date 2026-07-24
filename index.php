@@ -71,7 +71,7 @@ function formatRaceDate(string $isoDate): string
         <div class="section">
             <div class="section-title">Organizace</div>
             <p class="intro-text" style="margin-bottom: 12px;">
-                Závody pořádá oddíl SK Brno Žabovřesky. Počítáme se dvěma závody v sezóně —
+                Závody organizuje náš oddíl orientačního běhu. Počítáme se dvěma závody v sezóně —
                 podzimní okresní kolo a jarní krajské kolo, ze kterého se postupuje dál.
             </p>
 
