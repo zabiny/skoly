@@ -17,7 +17,7 @@ function oris_filter_liga_skol_events(array $events): array
             continue;
         }
         $name = $event['Name'] ?? '';
-        if (str_contains(oris_normalize_for_match($name), oris_normalize_for_match('Liga škol'))) {
+        if (strpos(oris_normalize_for_match($name), oris_normalize_for_match('Liga škol')) !== false) {
             $matches[] = $event;
         }
     }
