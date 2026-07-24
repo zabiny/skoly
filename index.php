@@ -99,18 +99,6 @@ function formatRaceDate(string $isoDate): string
         </div>
 
         <div class="section">
-            <div class="section-title">Hodnocení</div>
-            <p class="intro-text" style="margin-bottom: 0;">
-                Do soutěže družstev ve všech kategoriích bodují vždy dva nejlepší závodníci. Body se přidělují
-                dle počtu zúčastněných družstev pro každou kategorii zvlášť a sčítají se: v kategorii DH3 = D3 + H3, DH5 = D5 + H5,
-                v kategorii DH79 = D7 + H7 + D9 + H9, v kategorii DHS = DS + HS. Pořadí škol je určeno počtem
-                získaných bodů, při rovnosti rozhoduje nižší součet časů bodujících členů družstva. Vítězové
-                jednotlivců se vyhlašují samostatně v jednotlivých kategoriích. Nejlepší dvě družstva v kategoriích
-                DH79 a DHS postupují do republikového finále.
-            </p>
-        </div>
-
-        <div class="section">
             <div class="section-title">Pravidla a tratě</div>
             <p class="intro-text" style="margin-bottom: 0;">
                 Běžíme podle Pravidel orientačního běhu, upravených pro naše podmínky
@@ -155,6 +143,18 @@ function formatRaceDate(string $isoDate): string
                     <div class="info-card-value">Čas 00 = 11:00, intervalový dle startovní listiny.</div>
                 </div>
             </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Hodnocení</div>
+            <p class="intro-text" style="margin-bottom: 0;">
+                Do soutěže družstev ve všech kategoriích bodují vždy dva nejlepší závodníci. Body se přidělují
+                dle počtu zúčastněných družstev pro každou kategorii zvlášť a sčítají se: v kategorii DH3 = D3 + H3, DH5 = D5 + H5,
+                v kategorii DH79 = D7 + H7 + D9 + H9, v kategorii DHS = DS + HS. Pořadí škol je určeno počtem
+                získaných bodů, při rovnosti rozhoduje nižší součet časů bodujících členů družstva. Vítězové
+                jednotlivců se vyhlašují samostatně v jednotlivých kategoriích. Nejlepší dvě družstva v kategoriích
+                DH79 a DHS postupují do republikového finále.
+            </p>
         </div>
 
     </div>
