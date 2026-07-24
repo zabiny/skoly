@@ -43,9 +43,6 @@ function formatRaceDate(string $isoDate): string
         <div class="header-title">Liga škol</div>
         <div class="header-lead">Zábavné závody v orientačním běhu pro základní a střední školy Jihomoravského kraje.</div>
         <div class="header-badges">
-            <span class="badge">DH5</span>
-            <span class="badge">DH79</span>
-            <span class="badge">DHS</span>
             <span class="badge badge-muted">JM kraj</span>
         </div>
     </div>
@@ -108,7 +105,7 @@ function formatRaceDate(string $isoDate): string
             <div class="section-title">Hodnocení</div>
             <p class="intro-text" style="margin-bottom: 0;">
                 Do soutěže družstev ve všech kategoriích bodují vždy dva nejlepší závodníci. Body se přidělují
-                dle počtu zúčastněných družstev pro každou kategorii zvlášť a sčítají se: v kategorii DH5 = D5 + H5,
+                dle počtu zúčastněných družstev pro každou kategorii zvlášť a sčítají se: v kategorii DH3 = D3 + H3, DH5 = D5 + H5,
                 v kategorii DH79 = D7 + H7 + D9 + H9, v kategorii DHS = DS + HS. Pořadí škol je určeno počtem
                 získaných bodů, při rovnosti rozhoduje nižší součet časů bodujících členů družstva. Vítězové
                 jednotlivců se vyhlašují samostatně v jednotlivých kategoriích. Nejlepší dvě družstva v kategoriích
