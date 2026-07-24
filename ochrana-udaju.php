@@ -51,7 +51,7 @@
     </div>
 
     <div class="page-footer">
-        Pořádá SK Brno Žabovřesky &middot; <a href="index.php">Zpět na Ligu škol</a>
+        Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="index.php">Zpět na Ligu škol</a>
     </div>
 
 </div>

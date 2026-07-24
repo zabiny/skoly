@@ -160,7 +160,7 @@ function formatRaceDate(string $isoDate): string
     </div>
 
     <div class="page-footer">
-        Pořádá SK Brno Žabovřesky &middot; <a href="ochrana-udaju.php">Ochrana osobních údajů a fotografování</a>
+        Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="ochrana-udaju.php">Ochrana osobních údajů a fotografování</a>
     </div>
 
 </div>
