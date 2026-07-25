@@ -30,6 +30,7 @@ function oris_filter_school_events(array $events): array
 
 function oris_cache_is_fresh(string $cacheFile, int $ttlSeconds): bool
 {
+    clearstatcache(true, $cacheFile);
     if (!is_file($cacheFile)) {
         return false;
     }
