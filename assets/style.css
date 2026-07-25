@@ -122,7 +122,6 @@ body {
   align-items: center;
   background: #fafafa;
   border: 1px solid #eee;
-  border-left: 3px solid #0a6b3a;
   border-radius: 4px;
   padding: 10px 14px;
   gap: 14px;
@@ -149,7 +148,6 @@ body {
 .race-empty {
   background: #fafafa;
   border: 1px solid #eee;
-  border-left: 3px solid #0a6b3a;
   border-radius: 4px;
   padding: 12px 14px;
   font-size: 12.5px;
