@@ -14,6 +14,10 @@ $races = oris_get_school_events($cacheFile, 900, static function () use ($apiUrl
     return oris_fetch_raw($apiUrl);
 });
 
+// Paste the Google Form URL here once it's ready. Registration goes through
+// this form, not through ORIS's own entry system.
+$registrationFormUrl = '';
+
 function h(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -86,6 +90,16 @@ function formatRaceDate(string $isoDate): string
 <?php endforeach; ?>
 <?php endif; ?>
             </div>
+        </div>
+
+        <div class="section cta-section">
+            <div class="cta-title">Jak se přihlásit</div>
+<?php if ($registrationFormUrl !== ''): ?>
+            <p class="cta-text">Přihlaste svou školu přes krátký formulář — vyplníte ho za pár minut.</p>
+            <a class="cta-button" href="<?= h($registrationFormUrl) ?>">Přihlásit školu →</a>
+<?php else: ?>
+            <p class="cta-text" style="margin-bottom: 0;">Přihlašovací formulář zveřejníme, jakmile bude hotový — objeví se tady.</p>
+<?php endif; ?>
         </div>
 
         <div class="section">
