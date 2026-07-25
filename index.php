@@ -2,14 +2,15 @@
 
 require __DIR__ . '/lib/oris.php';
 
-$cacheFile = __DIR__ . '/cache/oris-liga-skol.json';
+$cacheFile = __DIR__ . '/cache/oris-prebor-skol.json';
+[$seasonStart, $seasonEnd] = oris_school_year_range((int) date('Y'), (int) date('n'));
 $apiUrl = sprintf(
-    'https://oris.ceskyorientak.cz/API/?format=json&method=getEventList&region=JHM&datefrom=%s&dateto=%s',
-    date('Y-m-d'),
-    date('Y-m-d', strtotime('+18 months'))
+    'https://oris.ceskyorientak.cz/API/?format=json&method=getEventList&all=1&level=20&rg=JM&datefrom=%s&dateto=%s',
+    $seasonStart,
+    $seasonEnd
 );
 
-$races = oris_get_liga_skol_events($cacheFile, 900, static function () use ($apiUrl) {
+$races = oris_get_school_events($cacheFile, 900, static function () use ($apiUrl) {
     return oris_fetch_raw($apiUrl);
 });
 
@@ -164,7 +165,7 @@ function formatRaceDate(string $isoDate): string
     </div>
 
     <div class="page-footer">
-        Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="ochrana-udaju.php">Ochrana osobních údajů a fotografování</a>
+        Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="vysledky.php">Výsledky</a> &middot; <a href="ochrana-udaju.php">Ochrana osobních údajů a fotografování</a>
     </div>
 
 </div>

@@ -10,7 +10,7 @@
 <div class="page-wrapper">
 
     <div class="page-header">
-        <div class="header-kicker">Liga škol</div>
+        <div class="header-kicker">Přebor škol</div>
         <div class="header-title">Ochrana osobních údajů</div>
     </div>
 
@@ -51,7 +51,7 @@
     </div>
 
     <div class="page-footer">
-        Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="index.php">Zpět na Ligu škol</a>
+        Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="index.php">Zpět na Přebor škol</a>
     </div>
 
 </div>

@@ -17,27 +17,39 @@ function assertEqual($expected, $actual, string $message): void
 function fixtureEvents(): array
 {
     return [
-        'Event_1' => ['ID' => '1', 'Name' => 'Kitl Český pohár 2026', 'Date' => '2026-03-01', 'Place' => '', 'Cancelled' => '0'],
-        'Event_2' => ['ID' => '2', 'Name' => 'Liga škol - podzimní okresní kolo', 'Date' => '2026-10-05', 'Place' => 'Brno', 'Cancelled' => '0'],
-        'Event_3' => ['ID' => '3', 'Name' => 'LIGA ŠKOL - jarní krajské kolo', 'Date' => '2026-04-20', 'Place' => 'Brno', 'Cancelled' => '0'],
-        'Event_4' => ['ID' => '4', 'Name' => 'Liga škol - zrušené kolo', 'Date' => '2026-05-01', 'Place' => 'Brno', 'Cancelled' => '1'],
-        'Event_5' => ['ID' => '5', 'Name' => 'Liga skol - bez hacku a carek', 'Date' => '2026-06-15', 'Place' => 'Brno', 'Cancelled' => '0'],
+        'Event_1' => ['ID' => '1', 'Name' => 'Kitl Český pohár 2026', 'Date' => '2026-03-01', 'Place' => '', 'Level' => ['ID' => '8', 'ShortName' => 'ČP'], 'Cancelled' => '0'],
+        'Event_2' => ['ID' => '2', 'Name' => 'Přebor škol - podzimní okresní kolo', 'Date' => '2026-10-05', 'Place' => 'Brno', 'Level' => ['ID' => '20', 'ShortName' => 'PS'], 'Cancelled' => '0'],
+        'Event_3' => ['ID' => '3', 'Name' => 'Krajské kolo přeboru škol - Jihomoravský kraj', 'Date' => '2026-04-20', 'Place' => 'Brno', 'Level' => ['ID' => '20', 'ShortName' => 'PS'], 'Cancelled' => '0'],
+        'Event_4' => ['ID' => '4', 'Name' => 'Přebor škol - zrušené kolo', 'Date' => '2026-05-01', 'Place' => 'Brno', 'Level' => ['ID' => '20', 'ShortName' => 'PS'], 'Cancelled' => '1'],
+        'Event_5' => ['ID' => '5', 'Name' => 'Školení rozhodčích 3. třídy', 'Date' => '2026-06-15', 'Place' => 'Brno', 'Level' => ['ID' => '15', 'ShortName' => 'SEM'], 'Cancelled' => '0'],
     ];
 }
 
-// --- oris_filter_liga_skol_events ---
+// --- oris_school_year_range ---
 
-$filtered = oris_filter_liga_skol_events(fixtureEvents());
-assertEqual(3, count($filtered), 'filter: keeps only non-cancelled Liga škol events');
+assertEqual(['2025-09-01', '2026-06-30'], oris_school_year_range(2026, 3), 'school_year_range: March 2026 is inside the 2025/2026 season (started last September)');
+assertEqual(['2025-09-01', '2026-06-30'], oris_school_year_range(2026, 6), 'school_year_range: June (last month of the season) still resolves to the same season');
+assertEqual(['2026-09-01', '2027-06-30'], oris_school_year_range(2026, 7), 'school_year_range: July rolls over to the next season (2026/2027)');
+assertEqual(['2026-09-01', '2027-06-30'], oris_school_year_range(2026, 9), 'school_year_range: September (season start) resolves to the season starting that month');
+
+// --- oris_filter_school_events ---
+
+$filtered = oris_filter_school_events(fixtureEvents());
+assertEqual(2, count($filtered), 'filter: keeps only non-cancelled Level=20 (Přebor škol) events');
 assertEqual('3', $filtered[0]['ID'] ?? null, 'filter: sorts by Date ascending (spring round first)');
-assertEqual('5', $filtered[1]['ID'] ?? null, 'filter: second entry is the diacritic-free June round');
-assertEqual('2', $filtered[2]['ID'] ?? null, 'filter: third entry is the autumn round');
-assertEqual(true, in_array('5', array_column($filtered, 'ID'), true), 'filter: matches diacritic-free "Liga skol" variant');
+assertEqual('2', $filtered[1]['ID'] ?? null, 'filter: second entry is the autumn round');
+assertEqual(false, in_array('5', array_column($filtered, 'ID'), true), 'filter: excludes non-school-league events (Level != 20) regardless of name');
+assertEqual(false, in_array('4', array_column($filtered, 'ID'), true), 'filter: excludes cancelled Level=20 events');
 
-$filteredEmpty = oris_filter_liga_skol_events([
-    'Event_1' => ['ID' => '1', 'Name' => 'Kitl Český pohár 2026', 'Date' => '2026-03-01', 'Cancelled' => '0'],
+$filteredEmpty = oris_filter_school_events([
+    'Event_1' => ['ID' => '1', 'Name' => 'Kitl Český pohár 2026', 'Date' => '2026-03-01', 'Level' => ['ID' => '8'], 'Cancelled' => '0'],
 ]);
 assertEqual([], $filteredEmpty, 'filter: returns empty array when nothing matches');
+
+$filteredMissingLevel = oris_filter_school_events([
+    'Event_1' => ['ID' => '1', 'Name' => 'No level field', 'Date' => '2026-03-01', 'Cancelled' => '0'],
+]);
+assertEqual([], $filteredMissingLevel, 'filter: treats a missing Level field as non-matching, not a fatal error');
 
 // --- oris_cache_is_fresh ---
 
@@ -71,7 +83,7 @@ unlink($malformedFile);
 
 assertEqual(null, oris_fetch_raw(sys_get_temp_dir() . '/oris_test_does_not_exist_' . uniqid() . '.json'), 'fetch_raw: returns null when the source is unreadable');
 
-// --- oris_get_liga_skol_events ---
+// --- oris_get_school_events ---
 
 $cacheDir = sys_get_temp_dir() . '/oris_test_' . uniqid();
 $cacheFile = $cacheDir . '/cache.json';
@@ -83,26 +95,26 @@ $fetcher = function () use (&$fetchCalls, $cacheFile) {
     $fetchCalls++;
     return fixtureEvents();
 };
-$result = oris_get_liga_skol_events($cacheFile, 900, $fetcher);
-assertEqual(3, count($result), 'get_events: first call fetches and filters');
+$result = oris_get_school_events($cacheFile, 900, $fetcher);
+assertEqual(2, count($result), 'get_events: first call fetches and filters');
 assertEqual(1, $fetchCalls, 'get_events: fetcher called once on cold cache');
 assertEqual(true, is_file($cacheFile), 'get_events: writes cache file');
 
 // Second call within TTL should NOT call fetcher again
-$result2 = oris_get_liga_skol_events($cacheFile, 900, $fetcher);
-assertEqual(3, count($result2), 'get_events: second call still returns filtered events');
+$result2 = oris_get_school_events($cacheFile, 900, $fetcher);
+assertEqual(2, count($result2), 'get_events: second call still returns filtered events');
 assertEqual(1, $fetchCalls, 'get_events: fetcher NOT called again while cache is fresh');
 
 // Force cache stale, fetcher now fails -> falls back to stale cache
 touch($cacheFile, time() - 1000);
 $failingFetcher = function () { return null; };
-$result3 = oris_get_liga_skol_events($cacheFile, 900, $failingFetcher);
-assertEqual(3, count($result3), 'get_events: on fetch failure, serves stale cache instead of erroring');
+$result3 = oris_get_school_events($cacheFile, 900, $failingFetcher);
+assertEqual(2, count($result3), 'get_events: on fetch failure, serves stale cache instead of erroring');
 
 // No cache at all, fetcher fails -> empty list, never null/error
 unlink($cacheFile);
 rmdir($cacheDir);
-$result4 = oris_get_liga_skol_events($cacheFile, 900, $failingFetcher);
+$result4 = oris_get_school_events($cacheFile, 900, $failingFetcher);
 assertEqual([], $result4, 'get_events: no cache + failed fetch => empty array, not an error');
 
 if ($failures > 0) {

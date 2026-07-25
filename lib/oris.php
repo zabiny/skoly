@@ -1,25 +1,24 @@
 <?php
 
-function oris_normalize_for_match(string $value): string
+function oris_school_year_range(int $year, int $month): array
 {
-    $transliterated = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $value);
-    if ($transliterated === false) {
-        $transliterated = $value;
+    if ($month <= 6) {
+        return [($year - 1) . '-09-01', $year . '-06-30'];
     }
-    return strtolower($transliterated);
+    return [$year . '-09-01', ($year + 1) . '-06-30'];
 }
 
-function oris_filter_liga_skol_events(array $events): array
+function oris_filter_school_events(array $events): array
 {
     $matches = [];
     foreach ($events as $event) {
         if (($event['Cancelled'] ?? '0') === '1') {
             continue;
         }
-        $name = $event['Name'] ?? '';
-        if (strpos(oris_normalize_for_match($name), oris_normalize_for_match('Liga škol')) !== false) {
-            $matches[] = $event;
+        if (($event['Level']['ID'] ?? '') !== '20') {
+            continue;
         }
+        $matches[] = $event;
     }
 
     usort($matches, static function (array $a, array $b): int {
@@ -53,7 +52,7 @@ function oris_fetch_raw(string $apiUrl): ?array
     return $decoded['Data'] ?? [];
 }
 
-function oris_get_liga_skol_events(string $cacheFile, int $ttlSeconds, callable $fetcher): array
+function oris_get_school_events(string $cacheFile, int $ttlSeconds, callable $fetcher): array
 {
     if (oris_cache_is_fresh($cacheFile, $ttlSeconds)) {
         $cached = json_decode((string) file_get_contents($cacheFile), true);
@@ -72,7 +71,7 @@ function oris_get_liga_skol_events(string $cacheFile, int $ttlSeconds, callable 
         return [];
     }
 
-    $filtered = oris_filter_liga_skol_events($raw);
+    $filtered = oris_filter_school_events($raw);
 
     $dir = dirname($cacheFile);
     if (!is_dir($dir)) {
