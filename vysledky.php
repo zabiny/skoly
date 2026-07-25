@@ -42,7 +42,7 @@ function formatRaceDate(string $isoDate): string
     <div class="page-header">
         <div class="header-kicker">Přebor škol</div>
         <div class="header-title">Výsledky</div>
-        <div class="header-lead">Odkazy na výsledky všech odjetých ročníků krajského přeboru škol v orientačním běhu.</div>
+        <div class="header-lead">Odkazy na výsledky všech uskutečněných ročníků krajského přeboru škol v orientačním běhu.</div>
     </div>
 
     <div class="page-body">
@@ -50,7 +50,7 @@ function formatRaceDate(string $isoDate): string
         <div class="section">
             <div class="race-list">
 <?php if (empty($races)): ?>
-                <div class="race-empty">Zatím žádné odjeté závody, výsledky se objeví po prvním ročníku.</div>
+                <div class="race-empty">Zatím žádné proběhlé závody, výsledky se objeví po prvním ročníku.</div>
 <?php else: ?>
 <?php foreach ($races as $index => $race): ?>
                 <a class="race-card" href="<?= h('https://oris.ceskyorientak.cz/Vysledky?id=' . ($race['ID'] ?? '')) ?>">
