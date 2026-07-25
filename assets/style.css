@@ -88,16 +88,10 @@ body {
 .cta-section {
   background: #0a6b3a;
   border-radius: 6px;
-  padding: 20px 22px;
-}
-.cta-title {
-  color: white;
-  font-size: 15px;
-  font-weight: 800;
-  margin-bottom: 6px;
+  padding: 18px 20px;
 }
 .cta-text {
-  color: rgba(255,255,255,0.85);
+  color: rgba(255,255,255,0.9);
   font-size: 13px;
   line-height: 1.6;
   margin-bottom: 14px;

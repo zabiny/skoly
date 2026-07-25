@@ -92,13 +92,17 @@ function formatRaceDate(string $isoDate): string
             </div>
         </div>
 
-        <div class="section cta-section">
-            <div class="cta-title">Jak se přihlásit</div>
+        <div class="section">
+            <div class="section-title">Jak se přihlásit</div>
 <?php if ($registrationFormUrl !== ''): ?>
-            <p class="cta-text">Přihlaste svou školu přes krátký formulář — vyplníte ho za pár minut.</p>
-            <a class="cta-button" href="<?= h($registrationFormUrl) ?>">Přihlásit školu →</a>
+            <div class="cta-section">
+                <p class="cta-text">Přihlaste svou školu přes krátký formulář — vyplníte ho za pár minut.</p>
+                <a class="cta-button" href="<?= h($registrationFormUrl) ?>">Přihlásit školu →</a>
+            </div>
 <?php else: ?>
-            <p class="cta-text" style="margin-bottom: 0;">Přihlašovací formulář zveřejníme, jakmile bude hotový — objeví se tady.</p>
+            <div class="info-card">
+                <div class="info-card-value">Přihlašovací formulář zveřejníme, jakmile bude hotový — objeví se tady.</div>
+            </div>
 <?php endif; ?>
         </div>
 
