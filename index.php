@@ -32,7 +32,7 @@ function formatRaceDate(string $isoDate): string
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liga škol | skoly.zabiny.club</title>
+    <title>Přebor škol | skoly.zabiny.club</title>
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -40,7 +40,7 @@ function formatRaceDate(string $isoDate): string
 
     <div class="page-header">
         <div class="header-kicker">Orientační běh pro školy</div>
-        <div class="header-title">Liga škol</div>
+        <div class="header-title">Přebor škol</div>
         <div class="header-lead">Zábavné závody v orientačním běhu pro základní a střední školy Jihomoravského kraje.</div>
     </div>
 
