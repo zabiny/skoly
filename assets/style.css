@@ -190,8 +190,14 @@ body {
   padding: 16px 28px;
   font-size: 11px;
   color: #8aa093;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 .page-footer a { color: #0a6b3a; }
+.footer-logo { height: 20px; width: auto; display: block; opacity: 0.75; }
 
 /* LEGAL PAGE */
 .legal-text { font-size: 13.5px; color: #444; line-height: 1.75; }

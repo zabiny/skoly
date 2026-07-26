@@ -69,6 +69,7 @@ function formatRaceDate(string $isoDate): string
     </div>
 
     <div class="page-footer">
+        <a href="https://zabiny.club"><img class="footer-logo" src="assets/zbm-logo.png" alt="SK Brno Žabovřesky"></a>
         Pořádá <a href="https://zabiny.club">SK Brno Žabovřesky</a> &middot; <a href="index.php">Zpět na Přebor škol</a>
     </div>
 
