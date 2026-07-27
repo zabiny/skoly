@@ -196,7 +196,7 @@ body {
   gap: 8px;
 }
 .page-footer a { color: #0a6b3a; }
-.footer-logo { height: 95px; width: auto; display: block; opacity: 0.95; }
+.footer-logo { height: 86px; width: auto; display: block; opacity: 0.95; }
 
 /* LEGAL PAGE */
 .legal-text { font-size: 13.5px; color: #444; line-height: 1.75; }
