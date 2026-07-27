@@ -67,7 +67,7 @@ body {
 .page-body { padding: 24px 28px 32px; }
 .intro-text {
   color: #444;
-  font-size: 14.5px;
+  font-size: 13px;
   line-height: 1.75;
   margin-bottom: 24px;
 }
@@ -147,18 +147,6 @@ body {
   color: #666;
 }
 
-/* CATEGORIES */
-.cat-list { display: flex; flex-direction: column; gap: 6px; }
-.cat-item {
-  background: #fafafa;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  padding: 8px 12px;
-  font-size: 12.5px;
-  color: #444;
-}
-.cat-item b { color: #183524; }
-
 /* INFO GRID */
 .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .info-card {
@@ -175,7 +163,7 @@ body {
   color: #0a6b3a;
   margin-bottom: 3px;
 }
-.info-card-value { font-size: 12.5px; color: #444; line-height: 1.6; }
+.info-card-value { font-size: 13px; color: #444; line-height: 1.6; }
 
 @media (max-width: 480px) {
   .info-grid { grid-template-columns: 1fr; }

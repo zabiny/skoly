@@ -108,12 +108,27 @@ function formatRaceDate(string $isoDate): string
 
         <div class="section">
             <div class="section-title">Kategorie</div>
-            <div class="cat-list">
-                <div class="cat-item"><b>D3/H3</b> — dívky/chlapci 1.–3. třída</div>
-                <div class="cat-item"><b>D5/H5</b> — dívky/chlapci 4.–5. třída</div>
-                <div class="cat-item"><b>D7/H7</b> — dívky/chlapci 6.–7. třída, prima/sekunda osmiletých gymnázií</div>
-                <div class="cat-item"><b>D9/H9</b> — dívky/chlapci 8.–9. třída, prima/sekunda šestiletých gymnázií, tercie/kvarta osmiletých gymnázií</div>
-                <div class="cat-item"><b>DS/HS</b> — 1.–4. ročník střední školy, kvinta až oktáva osmiletých gymnázií, tercie až sexta šestiletých gymnázií</div>
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-card-label">D3/H3</div>
+                    <div class="info-card-value">Dívky/chlapci 1.–3. třída.</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">D5/H5</div>
+                    <div class="info-card-value">Dívky/chlapci 4.–5. třída.</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">D7/H7</div>
+                    <div class="info-card-value">Dívky/chlapci 6.–7. třída, prima/sekunda osmiletých gymnázií.</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">D9/H9</div>
+                    <div class="info-card-value">Dívky/chlapci 8.–9. třída, prima/sekunda šestiletých gymnázií, tercie/kvarta osmiletých gymnázií.</div>
+                </div>
+                <div class="info-card">
+                    <div class="info-card-label">DS/HS</div>
+                    <div class="info-card-value">1.–4. ročník střední školy, kvinta až oktáva osmiletých gymnázií, tercie až sexta šestiletých gymnázií.</div>
+                </div>
             </div>
         </div>
 
