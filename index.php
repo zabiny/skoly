@@ -18,6 +18,10 @@ $races = oris_get_school_events($cacheFile, 900, static function () use ($apiUrl
 // entry system.
 $registrationFormUrl = 'https://docs.google.com/spreadsheets/d/15XtRNqTyD3KmrGzd9s-j3cxMIu-Zfzt39cQg9XQDMvw/edit?usp=sharing';
 
+// Address the filled-in sheet is sent to. The "send by e-mail" step stays
+// hidden until this is set.
+$registrationEmail = '';
+
 function h(string $value): string
 {
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -96,8 +100,15 @@ function formatRaceDate(string $isoDate): string
             <div class="section-title">Jak se přihlásit</div>
 <?php if ($registrationFormUrl !== ''): ?>
             <div class="cta-section">
-                <p class="cta-text">Přihlaste svou školu přes krátký formulář — vyplníte ho za pár minut.</p>
-                <a class="cta-button" href="<?= h($registrationFormUrl) ?>">Přihlásit školu →</a>
+                <ol class="cta-steps">
+                    <li>Otevřete vzor přihlášky a uložte si vlastní kopii (<em>Soubor → Vytvořit kopii</em>, nebo <em>Soubor → Stáhnout → Microsoft Excel</em>).</li>
+                    <li>Vyplňte název školy a kontakt na pedagogický doprovod — jméno, telefon a e-mail.</li>
+                    <li>Za každého závodníka napište příjmení a jméno, datum narození, třídu a kategorii (viz Kategorie níže). Číslo SI čipu vyplňte jen tehdy, když má závodník vlastní.</li>
+<?php if ($registrationEmail !== ''): ?>
+                    <li>Vyplněnou přihlášku pošlete e-mailem na <a href="mailto:<?= h($registrationEmail) ?>"><?= h($registrationEmail) ?></a> do termínu přihlášek, který najdete u závodu v ORIS.</li>
+<?php endif; ?>
+                </ol>
+                <a class="cta-button" href="<?= h($registrationFormUrl) ?>" target="_blank" rel="noopener">Otevřít vzor přihlášky →</a>
             </div>
 <?php else: ?>
             <div class="info-card">
