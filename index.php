@@ -14,9 +14,9 @@ $races = oris_get_school_events($cacheFile, 900, static function () use ($apiUrl
     return oris_fetch_raw($apiUrl);
 });
 
-// Paste the Google Form URL here once it's ready. Registration goes through
-// this form, not through ORIS's own entry system.
-$registrationFormUrl = '';
+// Registration goes through this shared Google Sheet, not through ORIS's own
+// entry system.
+$registrationFormUrl = 'https://docs.google.com/spreadsheets/d/15XtRNqTyD3KmrGzd9s-j3cxMIu-Zfzt39cQg9XQDMvw/edit?usp=sharing';
 
 function h(string $value): string
 {
