@@ -22,7 +22,7 @@ A regional (JM) school league that feeds into a national finale: the top two sch
 
 - Two rounds per season: autumn okresní (district) kolo, spring krajské (regional) kolo.
 - Race dates/venues are entered into ORIS (the Czech orienteering federation's system) by the organizer and pulled onto this page automatically by name-matching "Liga škol" events in region JHM — the page has no admin/CMS of its own.
-- Runs on a production server on PHP 7.4 (confirmed hard constraint — PHP 8+-only functions like `str_contains()` will fatal in production even though local dev may run a newer PHP).
+- Runs on a production server on PHP 8.3 (since 2026-10; previously 7.4). Code must stay compatible with PHP 8.3.
 - No framework, no build step, no Composer dependencies — plain PHP/HTML/CSS by design, matching the sibling site bll.zabiny.club's approach.
 - Deploy is manual: `git push` to GitHub, then `ssh zbm@zabiny.club -p 55007`, `cd /var/www/html/skoly && git pull`.
 
@@ -49,5 +49,5 @@ A regional (JM) school league that feeds into a national finale: the top two sch
 - Orienteering-for-schools promotion comes before club branding — the club is credited, not the headline.
 - Never show a broken or blank state: missing race data always degrades to a clear Czech fallback message.
 - Legal/compliance text is verbatim and untouchable; everything else is written in a friendly, non-competition-heavy tone.
-- Production PHP version (7.4) is a hard compatibility constraint on every future change, not just this one.
+- Production PHP version (8.3) is a hard compatibility constraint on every future change, not just this one.
 - No framework/build step is a deliberate constraint, not a gap to fill.

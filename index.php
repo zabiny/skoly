@@ -42,7 +42,7 @@ function formatRaceDate(string $isoDate): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Přebor škol | skoly.zabiny.club</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="assets/style.css?v=<?= filemtime(__DIR__ . '/assets/style.css') ?>">
 </head>
 <body>
 <div class="page-wrapper">
@@ -99,17 +99,29 @@ function formatRaceDate(string $isoDate): string
         <div class="section">
             <div class="section-title">Jak se přihlásit</div>
 <?php if ($registrationFormUrl !== ''): ?>
-            <div class="cta-section">
-                <ol class="cta-steps">
-                    <li>Otevřete vzor přihlášky a uložte si vlastní kopii (<em>Soubor → Vytvořit kopii</em>, nebo <em>Soubor → Stáhnout → Microsoft Excel</em>).</li>
-                    <li>Vyplňte název školy a kontakt na pedagogický doprovod — jméno, telefon a e-mail.</li>
-                    <li>Za každého závodníka napište příjmení a jméno, datum narození, třídu a kategorii (viz Kategorie níže). Číslo SI čipu vyplňte jen tehdy, když má závodník vlastní.</li>
+            <ol class="steps">
+                <li class="step">
+                    <span class="step-num" aria-hidden="true">1</span>
+                    <div class="step-body">
+                        <p>Otevřete vzor přihlášky a uložte si vlastní kopii (<em>Soubor → Vytvořit kopii</em>, nebo <em>Soubor → Stáhnout → Microsoft Excel</em>).</p>
+                        <a class="cta-button" href="<?= h($registrationFormUrl) ?>" target="_blank" rel="noopener">Otevřít vzor přihlášky →</a>
+                    </div>
+                </li>
+                <li class="step">
+                    <span class="step-num" aria-hidden="true">2</span>
+                    <div class="step-body">Vyplňte název školy a kontakt na pedagogický doprovod — jméno, telefon a e-mail.</div>
+                </li>
+                <li class="step">
+                    <span class="step-num" aria-hidden="true">3</span>
+                    <div class="step-body">Za každého závodníka napište příjmení a jméno, datum narození, třídu a kategorii (viz Kategorie níže). Číslo SI čipu vyplňte jen tehdy, když má závodník vlastní.</div>
+                </li>
 <?php if ($registrationEmail !== ''): ?>
-                    <li>Vyplněnou přihlášku pošlete e-mailem na <a href="mailto:<?= h($registrationEmail) ?>"><?= h($registrationEmail) ?></a> do termínu přihlášek, který najdete u závodu v ORIS.</li>
+                <li class="step">
+                    <span class="step-num" aria-hidden="true">4</span>
+                    <div class="step-body">Vyplněnou přihlášku pošlete e-mailem na <a href="mailto:<?= h($registrationEmail) ?>"><?= h($registrationEmail) ?></a> do termínu přihlášek, který najdete u závodu v ORIS.</div>
+                </li>
 <?php endif; ?>
-                </ol>
-                <a class="cta-button" href="<?= h($registrationFormUrl) ?>" target="_blank" rel="noopener">Otevřít vzor přihlášky →</a>
-            </div>
+            </ol>
 <?php else: ?>
             <div class="info-card">
                 <div class="info-card-value">Přihlašovací formulář zveřejníme, jakmile bude hotový — objeví se tady.</div>
