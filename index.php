@@ -20,7 +20,7 @@ $registrationFormUrl = 'https://docs.google.com/spreadsheets/d/15XtRNqTyD3KmrGzd
 
 // Address the filled-in sheet is sent to. The "send by e-mail" step stays
 // hidden until this is set.
-$registrationEmail = '';
+$registrationEmail = 'jan.zhanal@zabiny.club';
 
 function h(string $value): string
 {
