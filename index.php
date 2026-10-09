@@ -212,7 +212,7 @@ function formatRaceDate(string $isoDate): string
                     dle počtu zúčastněných družstev pro každou kategorii zvlášť a sčítají se: v kategorii DH3 = D3 + H3, DH5 = D5 + H5,
                     v kategorii DH79 = D7 + H7 + D9 + H9, v kategorii DHS = DS + HS. Pořadí škol je určeno počtem
                     získaných bodů, při rovnosti rozhoduje nižší součet časů bodujících členů družstva. Vítězové
-                    jednotlivců se vyhlašují samostatně v jednotlivých kategoriích. Nejlepší dvě družstva v kategoriích
+                    jednotlivců se vyhlašují samostatně v jednotlivých kategoriích. Nejlepší družstva v kategoriích
                     DH79 a DHS postupují do republikového finále.
                 </div>
             </div>
